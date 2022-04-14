@@ -7,19 +7,26 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 
 
-export default function NavBar({searchEmp}) {
+export default function NavBar({searchEmp,reset}) {
     let searchRef = useRef('')
     const [searchflag, setsearchflag] = useState(true);
 
     const setFlag = ()=>{
         if(searchflag===true){
+            if(searchRef.current.value!==""){
             searchEmp(searchRef.current.value)
             setsearchflag(false)
+            }
+            else{
+                console.log("please enter name")
+                setsearchflag(true)
+            }
         }
         else{
            
             searchRef.current.value=""
             setsearchflag(true)
+            reset()
         }
     }
 

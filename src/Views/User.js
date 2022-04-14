@@ -17,6 +17,7 @@ import Grid from '@mui/material/Grid';
 
 
 
+
 export default function User() {
 
     const [employees,setEmployees]= useState(Object.values(Employeees)[0])
@@ -44,7 +45,8 @@ export default function User() {
 
     
 
-
+    //ADD Operation 
+   
     const addUser = ()=>{
         let regex = /^[a-zA-Z]+$/;
         if(firstnameRef.current.value!=='' && lastnameRef.current.value!=='' && employeetype!==''){
@@ -67,14 +69,16 @@ export default function User() {
         }
     }
 
+    // Delete Operation
+
     const deleteUser = (element)=>{
         console.log(element)
         let newArray = employees.filter((user)=>user.firstName!==element.firstName &&user.lastName!==element.lastName)
         setEmployees(newArray)
         console.log("Employee deleted")
-        console.log(employees)
     }
 
+    //Search Operation
     const searchUser = (element)=>{
         let obj =[]
         for(let i=0;i<employees.length;i++){
@@ -82,20 +86,24 @@ export default function User() {
                 obj.push(employees[i])
             }
         }
-        if (obj===undefined){
-            console.log("Employee doesnt exist")
+        if (obj.length===0){
+            console.log("Employee doesn't exist")
         }
         else{
             setEmployees(obj)
         }
     }
 
-
+    //Reset Operation
+     
+    const resetTables = ()=>{
+        setEmployees(Object.values(Employeees)[0])
+    }
    
 
     return(
         <>
-        <Customnavbar searchEmp={searchUser}></Customnavbar>
+        <Customnavbar searchEmp={searchUser} reset={resetTables}></Customnavbar>
         <Grid container >
             <Grid item xs={12} sm={12} md={12}>
             <br></br>
