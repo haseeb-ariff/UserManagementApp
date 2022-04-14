@@ -27,3 +27,13 @@ A ReactJS project developed by Haseeb Asif
 </ul>
 
 <i>Sample data fetched from JSON file
+
+<Questions>
+
+<h3>How long did you spend on this assignment? What would you have done different if you had more time?</h3>
+
+<h2>I had spent 7 hours to complete this task. If I had more time then I would’ve implemented user authentication and also tried to further improve the user interface of this web app. I also would’ve tried to further optimize my code.</h2>
+
+<h3>What are focus areas if your code would have to be part of an actual application?</h3>
+
+<h2>One main focus area would be data consistency, which ensures the integrity of the data so that the data stays updated and consistent throughout the app.Another would be code optimization so that it becomes a smaller size and consumes less memory.Another main focus would be user interface.Also, the user interface would also be another focus area in order to make it user friendly for the clients.</h2>

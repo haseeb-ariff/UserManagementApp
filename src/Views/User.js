@@ -61,7 +61,7 @@ export default function User() {
               console.log("Employee added")
            }
            else{
-               console.log("Invalid Input")
+               alert("Invalid Input")
            }
         }
         else{
