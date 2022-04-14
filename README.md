@@ -2,7 +2,7 @@
 
 ## Task
 
-A ReactJS project developed by Haseeb Asif
+A ReactJS project developed by Haseeb Arif
 
 ## Steps to run the application
 
