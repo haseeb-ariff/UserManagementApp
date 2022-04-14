@@ -12,6 +12,7 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import Grid from '@mui/material/Grid';
 
 
 
@@ -39,7 +40,6 @@ export default function User() {
     }; 
 
     useEffect(()=>{
-        console.log("Employee added")
     },[employees])
 
     
@@ -75,12 +75,11 @@ export default function User() {
         console.log(employees)
     }
 
-    const searchUser = ()=>{
-        let employeename= ""
-        let obj 
-        for(let i=0;i<employees[0].length;i++){
-            if(employees[i].firstName===employeename || employees[i].lastName===employeename){
-                obj = employees[i]
+    const searchUser = (element)=>{
+        let obj =[]
+        for(let i=0;i<employees.length;i++){
+            if(employees[i].firstName===element || employees[i].lastName===element){
+                obj.push(employees[i])
             }
         }
         if (obj===undefined){
@@ -88,7 +87,6 @@ export default function User() {
         }
         else{
             setEmployees(obj)
-            console.log(employees)
         }
     }
 
@@ -98,32 +96,32 @@ export default function User() {
     return(
         <>
         <Customnavbar searchEmp={searchUser}></Customnavbar>
-        <grid container >
-            <grid item xs={12} sm={12} md={12}>
+        <Grid container >
+            <Grid item xs={12} sm={12} md={12}>
             <br></br>
             <h1 style={{marginLeft:45, color:"#9229ac"}}>Users</h1>
             <Table deleteEmployee={deleteUser}  users={employees} employeeType="User"></Table>
-            </grid>
-        </grid>
-        <grid container >
-            <grid item xs={12} sm={12} md={12}>
+            </Grid>
+        </Grid>
+        <Grid container >
+            <Grid item xs={12} sm={12} md={12}>
             <br></br>
             <h1 style={{marginLeft:45, color:"#9229ac"}}>Senior Users</h1>
             <Table deleteEmployee={deleteUser}  users={employees} employeeType="Senior User"></Table>
-            </grid>
-        </grid>
-        <grid container >
-            <grid item xs={12} sm={12} md={12}>
+            </Grid>
+        </Grid>
+        <Grid container >
+            <Grid item xs={12} sm={12} md={12}>
             <br></br>
             <h1 style={{marginLeft:45, color:"#9229ac"}}>WFM</h1>
             <Table  deleteEmployee={deleteUser} users={employees} employeeType="WFM"></Table>
-            </grid>
-        </grid>
-        <grid container >
-            <grid item xs={12} sm={12} md={12}>
+            </Grid>
+        </Grid>
+        <Grid container >
+            <Grid item xs={12} sm={12} md={12}>
             <Custombutton btnStyle={{backgroundColor: "#9229ac",color: "white",textTransform: "none",borderColor:"#9229ac",outline:"none",marginLeft:50,width:200,marginBottom:10,height:50}} text={"Add User"} event={()=>{setOpen(true)}} ></Custombutton>
-        </grid>
-        </grid>
+        </Grid>
+        </Grid>
         
         {/* Add user Form */}
         

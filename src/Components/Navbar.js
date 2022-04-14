@@ -1,4 +1,4 @@
-import * as React from 'react';
+import  React,{useRef,useState} from 'react';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import {TextField,IconButton,InputAdornment} from '@mui/material';
@@ -7,7 +7,23 @@ import ClearIcon from '@mui/icons-material/Clear';
 
 
 
-export default function NavBar() {
+export default function NavBar({searchEmp}) {
+    let searchRef = useRef('')
+    const [searchflag, setsearchflag] = useState(true);
+
+    const setFlag = ()=>{
+        if(searchflag===true){
+            searchEmp(searchRef.current.value)
+            setsearchflag(false)
+        }
+        else{
+           
+            searchRef.current.value=""
+            setsearchflag(true)
+        }
+    }
+
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{height:120, backgroundColor:"#9229ac"}}>
@@ -18,14 +34,13 @@ export default function NavBar() {
             style={{width:500,backgroundColor:"white",marginTop:-15,height:55}}
               placeholder="Enter Name here"
               variant="filled"
-            //   inputRef={searchref}
+              inputRef={searchRef}
               InputProps={{
                 style: { fontFamily: 'nunito', color: 'grey'},
                 endAdornment: (
-                  <InputAdornment>
-                    <IconButton >
-                      {/* {searchflag ? <SearchIcon /> : <ClearIcon />} */}
-                      <SearchIcon></SearchIcon>
+                  <InputAdornment position='end'>
+                    <IconButton onClick={setFlag} >
+                      {searchflag ? <SearchIcon /> : <ClearIcon />}
                     </IconButton>
                   </InputAdornment>
                 ),
